@@ -9,42 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Order {
     private WebDriver driver;
     public Order(WebDriver driver) {
-
         this.driver=driver;
     }
-
-    //метод открытия главной страницы с вопросами
-    public void openPage (){
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-    }
-
-    //кнопка закрытия кук
-    private By CookButton=By.id("rcc-confirm-button");
-    public void clickCookButton() {
-        driver.findElement(CookButton).click();
-    }
-
-
-    // локатор верхней кнопки "Заказать"
-    private By orderButton=By.className("Button_Button__ra12g");
-
-    // локатор нижней кнопки "Заказать"
-    private By orderDownButton=By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     // метод ожидания загрузки страницы
     public void waitForOpenPage(){new WebDriverWait(driver, 10)
             .until(ExpectedConditions.visibilityOfElementLocated(By.className("Button_Button__ra12g")));
     }
-
-    //метод клика на кнопку "Заказать", кнопка находится вверху
-    public void clickOrderButton() {
-        driver.findElement(orderButton).click();
-    }
-    //метод клика на кнопку "Заказать", кнопка находится внизу страницы
-    public void clickOrderDownButton() {
-        driver.findElement(orderDownButton).click();
-    }
-
     // локатор "Имя"
     private By firstNameField=By.xpath(".//input[@placeholder='* Имя']");
     // локатор "Фамилия"
@@ -58,8 +29,7 @@ public class Order {
     //локатор кнопки "Далее"
     private By nextButton = By.xpath(".//div[@class='Order_Content__bmtHS']/div[@class='Order_NextButton__1_rCA']/button");
 
-
-    // методы для заполнения поля "Имя"
+    // метод для заполнения поля "Имя"
     public void setFirstName(String firstName) {
         driver.findElement(firstNameField).sendKeys(firstName);
     }
@@ -67,11 +37,10 @@ public class Order {
     public void setLastName(String lastName) {
         driver.findElement(lastNameField).sendKeys(lastName);
     }
-    // методы для заполнения поля "Адрес"
+    // метод для заполнения поля "Адрес"
     public void setAddress(String address) {
         driver.findElement(addressField).sendKeys(address);
     }
-
     // кликнуть по полю "Станция метро"
     public void clickMetroField() {
         driver.findElement(metroField).click();
@@ -86,12 +55,11 @@ public class Order {
         driver.findElement(station).click();
     }
 
-    // методы для заполнения поля "Телефон: на него позвонит курьер"
+    // метод для заполнения поля "Телефон: на него позвонит курьер"
     public void setPhoneNumber(String phoneNumber) {
         driver.findElement(phoneNumberField).sendKeys(phoneNumber);
     }
     public void clickNextButton() {
         driver.findElement(nextButton).click();
     }
-
 }

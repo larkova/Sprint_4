@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 public class  CheckListOfQuestionAndAnswers {
     private By questions; // вопросы на странице
     private By getTextOfAnswers; // ответы на соответствующие вопросы
-    private String expected; //ожидаемый текст
+    private String expected; //ожидаемый текст ответа
     public CheckListOfQuestionAndAnswers (By questions, By getTextOfAnswers, String expected){
         this.questions=questions;
         this.getTextOfAnswers=getTextOfAnswers;
@@ -55,9 +55,9 @@ public class  CheckListOfQuestionAndAnswers {
         // клик по соответствующему вопросу
         driver.findElement(questions).click();
         // получение текста ответа на соответствующий вопрос
-        String test=driver.findElement(getTextOfAnswers).getText();
+        String text=driver.findElement(getTextOfAnswers).getText();
         // сравнение полученного ответа и ожидаемого ответа
-        assertEquals(expected, test);
+        assertEquals(expected, text);
     }
         @After
         public void cleanUp () {

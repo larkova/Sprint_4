@@ -24,9 +24,6 @@ public class OrderSecondPage {
     //локатор нижней кнопки "Заказать"
     private By orderDownButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']");
 
-    //локатор верхней кнопки "Заказать"
-    private By orderButton = By.xpath(".//button[@class='Button_Button__ra12g']");
-
     //локатор кнопки "Да"
     private By yesButton=By.xpath(".//div[@class='Order_Buttons__1xGrp']/button[text()='Да']");
     // кнопка "Посмотреть статус"
@@ -56,14 +53,6 @@ public class OrderSecondPage {
         public void setComment (String comment){
                 driver.findElement(commentField).sendKeys(comment);
         }
-        // клик по нижней кнопке "Заказать"
-        public void clickOrderDownButton () {
-            driver.findElement(orderDownButton).click();
-        }
-        // клик по верхней кнопке "Заказать"
-        public void clickOrderButton () {
-        driver.findElement(orderButton).click();
-    }
         // клик по кнопке "Да"
         public void clickYesButton () {
             driver.findElement(yesButton).click();

@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.praktikum.yandex.model.ListOfQuestions;
 import ru.praktikum.yandex.model.Order;
 import ru.praktikum.yandex.model.OrderSecondPage;
 
@@ -50,10 +51,11 @@ public class CheckOrderScooter {
     //проверены кнопка "Заказать" внизу первой страницы, кнопка "Заказать" вверху второй страницы
     public void checkOrderScooter() {
         Order orderScooter = new Order(driver);
+        ListOfQuestions order = new ListOfQuestions(driver);
         OrderSecondPage orderNext = new OrderSecondPage(driver);
-        orderScooter.openPage();
-        orderScooter.waitForOpenPage();
-        orderScooter.clickCookButton();
+        order.openPage();
+        order.waitForOpenPage();
+        order.clickCookButton();
         driver.findElement(topButton).click();
         orderScooter.waitForOpenPage();
         orderScooter.setFirstName(firstName);
